@@ -21,8 +21,7 @@ public class Solution {
 
         list.remove(2);
         Collections.reverse(list);
-        for (String s:list
-             ) {
+        for (String s:list) {
             System.out.println(s);
 
         }
