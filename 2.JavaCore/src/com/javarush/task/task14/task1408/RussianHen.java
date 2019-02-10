@@ -1,14 +1,14 @@
 package com.javarush.task.task14.task1408;
 
 
-class BelarusianHen extends Hen {
+class RussianHen extends Hen {
 	@Override
 	int getCountOfEggsPerMonth() {
-		return 0;
+		return 84;
 	}
 
 	@Override
 	String getDescription() {
-		return super.getDescription();
+		return super.getDescription()+" Моя страна - "+ this.RUSSIA+". Я несу "+this.getCountOfEggsPerMonth()+" яиц в месяц.";
 	}
 }

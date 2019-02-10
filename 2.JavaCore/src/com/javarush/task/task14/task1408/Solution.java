@@ -6,70 +6,59 @@ package com.javarush.task.task14.task1408;
 
 public class Solution {
     public static void main(String[] args) {
-        Hen hen = HenFactory.getHen(Country.BELARUS);
-        hen.getCountOfEggsPerMonth();
+        Hen hen1 = HenFactory.getHen(Country.BELARUS);
+        System.out.println(hen1.getDescription());
+
+        Hen hen2 = HenFactory.getHen(Country.MOLDOVA);
+        System.out.println(hen2.getDescription());
+
+        Hen hen3 = HenFactory.getHen(Country.RUSSIA);
+        System.out.println(hen3.getDescription());
+
+        Hen hen4 = HenFactory.getHen(Country.UKRAINE);
+        System.out.println(hen4.getDescription());
     }
 
     static class HenFactory {
 
         static Hen getHen(String country) {
-            Hen hen = null;
+
+            switch (country) {
+                case Country.BELARUS: {
+                    Hen hen = new BelarusianHen();
+                    return hen;
+                }
+
+                case Country.MOLDOVA: {
+                    Hen hen = new MoldovanHen();
+                    return hen;
+
+                }
+
+                case Country.RUSSIA: {
+                    Hen hen = new RussianHen();
+                    return hen;
+                }
+
+                case Country.UKRAINE: {
+                    Hen hen = new UkrainianHen();
+                    return hen;
+                }
+
+            }
+
             //напишите тут ваш код
-            return hen;
-        }
-    }
-    abstract class Hen{
-        abstract int getCountOfEggsPerMonth();
-        String getDescription() {
-            return "Я - курица";
-        }
-    }
-    class RussianHen extends Hen {
-        @Override
-        int getCountOfEggsPerMonth() {
-            return 0;
-        }
 
-        @Override
-        String getDescription() {
-            return super.getDescription();
+            return null;
         }
     }
 
-    class UkrainianHen extends Hen {
-        @Override
-        int getCountOfEggsPerMonth() {
-            return 0;
-        }
 
-        @Override
-        String getDescription() {
-            return super.getDescription();
-        }
-    }
 
-    class MoldovanHen extends Hen {
-        @Override
-        int getCountOfEggsPerMonth() {
-            return 0;
-        }
 
-        @Override
-        String getDescription() {
-            return super.getDescription();
-        }
-    }
 
-    class BelarusianHen extends Hen {
-        @Override
-        int getCountOfEggsPerMonth() {
-            return 0;
-        }
 
-        @Override
-        String getDescription() {
-            return super.getDescription();
-        }
-    }
+
+
 
 }
